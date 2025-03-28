@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User,Writer,Post
+from api.models import db, User,Writer,Post,Reader
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -78,12 +78,71 @@ def delete_writer(writer_id):
 
 
 
+####### Reader crud #######
+
+
+
+
+@api.route('/readers', methods=['POST'])
+def create_reader():
+    data = request.get_json()
+
+    
+    if not all(field in data for field in ('first_name', 'last_name', 'email', 'password')):
+        return jsonify({"error": "Faltan datos obligatorios"}), 400
+
+    existing = Reader.query.filter_by(email=data['email']).first()
+    if existing:
+        return jsonify({"error": "Ya existe un escritor con este correo"}), 409
+
+    reader = Reader(
+        first_name=data['first_name'],
+        last_name=data['last_name'],
+        email=data['email'],
+        password=data['password']  
+    )
+
+    db.session.add(reader)
+    db.session.commit()
+
+    return jsonify(reader.serialize()), 201
+
+
+@api.route('/readers', methods=['GET'])            
+def get_reader():                
+    readers = Reader.query.all()
+    return jsonify([writer.serialize() for writer in readers]), 200
+
+@api.route('/readers/<int:reader_id>', methods=['PUT'])
+def update_reader(reader_id):
+    reader = Reader.query.get_or_404(reader_id)      
+    data = request.get_json()   
+
+    reader.first_name = data.get('first_name', reader.first_name)
+    reader.last_name = data.get('last_name', reader.last_name)
+    reader.email = data.get('email', reader.email)
+    reader.password = data.get('password', reader.password)
+
+    db.session.commit()
+    return jsonify(reader.serialize()), 200
+
+
+
+@api.route('/readers/<int:reader_id>', methods=['DELETE'])
+def delete_reader(reader_id):
+    reader = Reader.query.get_or_404(reader_id)
+    db.session.delete(reader)
+    db.session.commit()
+    return jsonify({"message": "Reader eliminado correctamente"}), 200
+
+
+
+
     ## post crud ##
 
 @api.route('/posts', methods=['POST'])
 def create_post():
     data = request.get_json()
-
     new_post = Post(
         title=data.get('title'),
         content=data.get('content'),
@@ -91,10 +150,8 @@ def create_post():
         abstract=data.get('abstract'),
         likes=data.get('likes', 0)  # Por defecto 0 si no se envía
     )
-
     db.session.add(new_post)
     db.session.commit()
-
     return jsonify(new_post.serialize()), 201
 
 
@@ -107,22 +164,10 @@ def get_posts():
     return jsonify([post.serialize() for post in posts]), 200
 
 
-
-
-
-
-
-
-
-
-
-
-
 @api.route('/posts/<int:post_id>', methods=['GET'])
-def get_post(post_id):
+def get_post_id(post_id):
     post = Post.query.get_or_404(post_id)
     return jsonify(post.serialize()), 200
-
 
 
 
@@ -149,6 +194,11 @@ def delete_post(post_id):
     db.session.commit()
 
     return jsonify({"message": "Post eliminado correctamente"}), 200
+
+
+
+
+
 
 
 
