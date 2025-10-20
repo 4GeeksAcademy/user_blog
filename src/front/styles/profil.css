@@ -1,0 +1,48 @@
+/* Profile Widget Styles */
+.profile-widget {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid #444;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #00c6ff;
+  box-shadow: 0 4px 15px rgba(0, 198, 255, 0.3);
+}
+
+.stats-item {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.stats-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.friend-item {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+}
+
+.friend-item:hover {
+  background: rgba(0, 198, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.location-btn {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
+}

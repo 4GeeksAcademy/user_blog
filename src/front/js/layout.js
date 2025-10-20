@@ -4,12 +4,16 @@ import ScrollToTop from "./component/scrollToTop";
 import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
-import { Demo } from "./pages/demo";
+// import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Register } from "./component/register";
+import { Login } from "./component/login";
+import Perfil from "./pages/perfil";
+import ProfilePublic from "./pages/profilePublic";
 
 //create your first component
 const Layout = () => {
@@ -24,12 +28,27 @@ const Layout = () => {
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />
-                    <Routes>
+                    {/* <Routes>
                         <Route element={<Home />} path="/" />
-                        <Route element={<Demo />} path="/demo" />
+                        <Route element={<Register />} path="/register" />
+                        <Route element={<Login />} path="/login" />
+                        <Route element={<Perfil />} path="/perfil" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
-                    </Routes>
+                    </Routes> */}
+                    // En tu layout.js
+// En tu layout.js - actualiza las rutas así:
+<Routes>
+    <Route element={<Home />} path="/" />  
+    <Route element={<Home />} path="/home" />
+    <Route element={<Register />} path="/register" />
+    <Route element={<Login />} path="/login" />
+    <Route element={<Perfil />} path="/perfil" />
+    <Route element={<Perfil />} path="/perfil/:userId" />
+    <Route element={<ProfilePublic />} path="/profile/:userId" /> {/* Perfil público */}
+    <Route element={<Single />} path="/single/:theid" />
+    <Route element={<h1>Not found!</h1>} path="*" />
+</Routes>
                     <Footer />
                 </ScrollToTop>
             </BrowserRouter>

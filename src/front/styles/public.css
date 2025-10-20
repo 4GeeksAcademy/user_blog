@@ -1,0 +1,43 @@
+/* En tu styles/profilePublic.css */
+.profile-cover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px 15px 0 0;
+}
+
+.profile-avatar {
+    border: 4px solid #2d2d2d;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stats-card {
+    transition: transform 0.2s ease;
+    border: none;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tema light */
+.app-light-theme .profile-cover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.app-light-theme .profile-avatar {
+    border-color: white;
+}
+
+.app-light-theme .stats-card {
+    background: #f8f9fa !important;
+    color: #212529 !important;
+}

@@ -1,0 +1,97 @@
+/* Post Widget Styles
+.post-widget {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border: 1px solid #444;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.post-textarea {
+  background: transparent;
+  border: none;
+  color: white;
+  resize: none;
+  font-size: 1.1rem;
+}
+
+.post-textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.post-textarea::placeholder {
+  color: #888;
+}
+
+.image-upload-label {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.image-upload-label:hover {
+  background: rgba(0, 198, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.publish-btn {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.publish-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 198, 255, 0.4);
+}
+
+.publish-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} */
+
+
+
+/* En tu styles/post.css o crear styles/ai-helper.css */
+.suggestion-item {
+    transition: all 0.3s ease;
+    border: 1px solid #6c757d;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.suggestion-item:hover {
+    background: rgba(0, 198, 255, 0.1);
+    border-color: #00c6ff;
+    transform: translateX(5px);
+}
+
+.hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Spinner para carga */
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Tema light */
+.app-light-theme .suggestion-item {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: #dee2e6;
+}
+
+.app-light-theme .suggestion-item:hover {
+    background: rgba(0, 123, 255, 0.1);
+    border-color: #007bff;
+}

@@ -1,0 +1,186 @@
+/* Tema Dark (default) */
+.app-dark-theme {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.app-dark-theme .bg-light {
+  background-color: #2d2d2d !important;
+}
+
+.app-dark-theme .text-dark {
+  color: #ffffff !important;
+}
+
+.app-dark-theme .border,
+.app-dark-theme .border-light {
+  border-color: #444 !important;
+}
+
+.app-dark-theme .card {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+.app-dark-theme .card-header {
+  background-color: #3a3a3a;
+  border-bottom-color: #444;
+}
+
+.app-dark-theme .card-footer {
+  background-color: #3a3a3a;
+  border-top-color: #444;
+}
+
+/* Tema Light */
+.app-light-theme {
+  background-color: #f8f9fa;
+  color: #212529;
+  min-height: 100vh;
+}
+
+.app-light-theme .bg-dark {
+  background-color: #ffffff !important;
+}
+
+.app-light-theme .text-light {
+  color: #212529 !important;
+}
+
+.app-light-theme .border-dark {
+  border-color: #dee2e6 !important;
+}
+
+.app-light-theme .card {
+  background-color: #ffffff;
+  border-color: #dee2e6;
+}
+
+.app-light-theme .card-header {
+  background-color: #f8f9fa;
+  border-bottom-color: #dee2e6;
+}
+
+.app-light-theme .card-footer {
+  background-color: #f8f9fa;
+  border-top-color: #dee2e6;
+}
+
+.app-light-theme .bg-secondary {
+  background-color: #e9ecef !important;
+}
+
+.app-light-theme .text-muted {
+  color: #6c757d !important;
+}
+
+/* Navbar específico para tema light (ya lo teníamos) */
+.app-light-theme .navbar {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.app-light-theme .navbar-brand {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.app-light-theme .btn-outline-light {
+  border-color: #6c757d;
+  color: #6c757d;
+}
+
+.app-light-theme .btn-outline-light:hover {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.app-light-theme .input-group-text {
+  background-color: #e9ecef !important;
+  border-color: #ced4da;
+  color: #495057;
+}
+
+.app-light-theme .form-control {
+  background-color: #e9ecef !important;
+  border-color: #ced4da;
+  color: #495057 !important;
+}
+
+.app-light-theme .form-control::placeholder {
+  color: #6c757d !important;
+}
+
+.app-light-theme .dropdown-menu {
+  background-color: white !important;
+  border: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.app-light-theme .dropdown-item {
+  color: #212529 !important;
+}
+
+.app-light-theme .dropdown-item:hover {
+  background-color: #f8f9fa !important;
+  color: #007bff !important;
+}
+
+.app-light-theme .dropdown-header {
+  color: #6c757d;
+}
+
+
+
+/* En tu navbar.css */
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.search-result-item {
+  transition: all 0.2s ease;
+  background: #2d2d2d;
+}
+
+.search-result-item:hover {
+  background: #3a3a3a;
+  transform: translateX(5px);
+}
+
+/* Scroll personalizado para resultados */
+.search-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: #00c6ff;
+  border-radius: 3px;
+}
+
+/* Tema light */
+.app-light-theme .search-results {
+  background: white;
+  border-color: #dee2e6;
+}
+
+.app-light-theme .search-result-item {
+  background: white;
+}
+
+.app-light-theme .search-result-item:hover {
+  background: #f8f9fa;
+}

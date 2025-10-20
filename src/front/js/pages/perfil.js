@@ -1,20 +1,22 @@
-// src/front/js/pages/home.js
-import React, { useContext } from "react";
+
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
+import { useParams } from "react-router-dom";
+
 import { PostWidget } from "../component/postWidget";
 import { PostList } from "../component/postList";
+import { ProfileWidget } from "./profileWidget";
 
-export const Home = () => {
+// En tu perfil.js - simplificar
+const Perfil = () => {
     const { store } = useContext(Context);
 
-    return (
+    return ( 
         <div className="container-fluid mt-4">
             <div className="row justify-content-center">
-                {/* Columna izquierda - Puedes agregar widgets aquí */}
+                {/* Columna izquierda - Perfil Widget */}
                 <div className="col-12 col-md-3 mb-4">
-                    <div className="position-sticky" style={{top: '100px'}}>
-                        {/* Espacio para widgets del home */}
-                    </div>
+                    <ProfileWidget />
                 </div>
 
                 {/* Columna central - Contenido principal */}
@@ -23,18 +25,17 @@ export const Home = () => {
                         <PostWidget />
                     </div>
                     <div className="post-list">
-                        {/* 🔹 Home muestra TODAS las publicaciones */}
-                        <PostList isProfilePage={false} />
+                        <PostList isProfilePage={true} />
                     </div>
                 </div>
 
-                {/* Columna derecha - Puedes agregar más widgets aquí */}
+                {/* Columna derecha */}
                 <div className="col-12 col-md-3 mb-4">
-                    <div className="position-sticky" style={{top: '100px'}}>
-                        {/* Espacio para futuros widgets */}
-                    </div>
+                    {/* Espacio para widgets adicionales */}
                 </div>
-            </div>
-        </div>
+            </div>           
+        </div>   
     );
 };
+   
+export default Perfil;
